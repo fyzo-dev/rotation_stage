@@ -35,7 +35,7 @@ class RotationStageHandle extends StatelessWidget {
       onSelected: (_) => onTap(),
       label: Text(
         name.toUpperCase(),
-        style: Theme.of(context).textTheme.button?.copyWith(
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(
               color: active
                   ? activeForegroundColor ?? colorScheme.onPrimary
                   : inactiveForegroundColor ?? colorScheme.onPrimaryContainer,

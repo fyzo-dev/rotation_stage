@@ -7,7 +7,7 @@ issue_tracker: https://github.com/fyzo-dev/rotation_stage/issues
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
-  flutter: ">=1.17.0"
+  flutter: ">=3.1.0"
 
 dependencies:
   flutter:
