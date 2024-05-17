@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:rotation_stage/src/const/scroll_start_page.dart';
 
 class RotationStageController extends ValueNotifier<double> {
-  RotationStageController({
-    double viewportFraction = 0.2,
-  })  : pageController = PageController(
+  final PageController pageController;
+
+  RotationStageController(double viewportFraction)
+      : pageController = PageController(
           initialPage: kInfiniteScrollStartPage,
           viewportFraction: viewportFraction,
         ),
@@ -15,8 +16,6 @@ class RotationStageController extends ValueNotifier<double> {
       }
     });
   }
-
-  final PageController pageController;
 
   void animateToPage(
     int page, {
