@@ -23,9 +23,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
   final String title;
+
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -40,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SafeArea(
         child: RotationStage(
+          viewportFraction: 0.2,
           contentBuilder: (
             int index,
             RotationStageSide side,
@@ -58,10 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         side.map(
-                          front: "Front",
-                          left: "Left",
-                          back: "Back",
-                          right: "Right",
+                          front: "Frente",
+                          left: "Esquerda",
+                          back: "Costas",
+                          right: "Direita",
                         ),
                       ),
                     ),

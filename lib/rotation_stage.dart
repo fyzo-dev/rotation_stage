@@ -14,22 +14,23 @@ typedef RotationStageBuilder = Widget Function(
     int index, RotationStageSide side, double currentPage);
 
 class RotationStage extends StatefulWidget {
-  const RotationStage({
-    super.key,
-    required this.contentBuilder,
-    this.controller,
-    this.viewHandleBuilder,
-    this.labels,
-    this.barHeight = 64,
-    this.barInteractable = true,
-  });
-
   final RotationStageBuilder contentBuilder;
+
   final RotationStageController? controller;
   final RotationStageBuilder? viewHandleBuilder;
   final RotationStageLabelData? labels;
   final double barHeight;
   final bool barInteractable;
+  final double? viewportFraction;
+  const RotationStage(
+      {super.key,
+      required this.contentBuilder,
+      this.controller,
+      this.viewHandleBuilder,
+      this.labels,
+      this.barHeight = 64,
+      this.barInteractable = true,
+      this.viewportFraction});
 
   @override
   State<RotationStage> createState() => _RotationStageState();
@@ -37,12 +38,6 @@ class RotationStage extends StatefulWidget {
 
 class _RotationStageState extends State<RotationStage> {
   late final RotationStageController _controller;
-
-  @override
-  void initState() {
-    _controller = widget.controller ?? RotationStageController();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,5 +70,12 @@ class _RotationStageState extends State<RotationStage> {
         ],
       ),
     );
+  }
+
+  @override
+  void initState() {
+    _controller = widget.controller ??
+        RotationStageController(widget.viewportFraction ?? 0.2);
+    super.initState();
   }
 }
